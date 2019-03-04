@@ -1,0 +1,42 @@
+<div class="col-4" *ngIf="!verificationMode">
+  <br/>
+  <div>
+    <label>Name</label>
+    <input type="" class="form-control" [(ngModel)]="signUpModel.name"/>
+  </div>
+
+  <div>
+      <label>Email</label>
+      <input type="email" class="form-control" [(ngModel)]="signUpModel.email"/>
+  </div>
+
+  <div>
+      <label>Password</label>
+      <input type="password" class="form-control" [(ngModel)]="signUpModel.password"/>
+  </div>
+
+  <div>
+    <label>Website</label>
+    <input type="url" class="form-control" [(ngModel)]="signUpModel.website"/>
+  </div>
+
+  <hr/>
+
+  <div class="alert alert-danger" *ngIf="errorMessage">{{errorMessage}}</div>
+
+  <input type="button" class="btn btn-success" value="Sign up" (click)="signUp()"/>
+</div>
+
+<div class="col-4" *ngIf="verificationMode">
+  <br/>
+  <div>
+    <label>Please enter 6-digit email verification code.</label>
+    <input type="number" class="form-control" [(ngModel)]="signUpModel.code"/>
+  </div>
+
+  <hr/>
+
+  <div class="alert alert-danger" *ngIf="errorMessage">{{errorMessage}}</div>
+
+  <input type="button" class="btn btn-success" value="Verify Code" (click)="confirmUser()"/>
+</div>
