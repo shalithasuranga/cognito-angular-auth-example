@@ -118,4 +118,11 @@ export class AuthService {
       cognitoUser.signOut();
   }
 
+  getCognitoUsername() {
+    var userPool = new AmazonCognitoIdentity.CognitoUserPool(this.poolData);
+    var cognitoUser = userPool.getCurrentUser();
+    return cognitoUser.getUsername();
+  }
+
+
 }
