@@ -8,6 +8,7 @@ import { LoginComponent } from './components/user/login/login/login.component';
 import { HomeComponent } from './components/user/home/home/home.component';
 import { MainmenuComponent } from './components/common/menus/mainmenu/mainmenu/mainmenu.component';
 import { SignupComponent } from './components/user/signup/signup/signup.component';
+import { AmplifyService, AmplifyAngularModule } from 'aws-amplify-angular';
 
 @NgModule({
   declarations: [
@@ -20,9 +21,10 @@ import { SignupComponent } from './components/user/signup/signup/signup.componen
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AmplifyAngularModule
   ],
-  providers: [],
+  providers: [AmplifyService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

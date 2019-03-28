@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth/authservice/auth.service';
-import { CognitoUserSession } from 'amazon-cognito-identity-js';
+import { CognitoUserSession, CognitoUser } from 'amazon-cognito-identity-js';
 import { Router } from '@angular/router';
 
 @Component({
@@ -20,15 +20,18 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    this.authService.cognitoLogin(this.signInModel).then((result: CognitoUserSession) => {
-      console.log(result);
-      this.router.navigate(['']);
+
+    this.authService.cognitoLogin(this.signInModel).then((result: CognitoUser) => {
+
+      this.errorMessage = '';
+      console.log(result.getSignInUserSession().getAccessToken().getJwtToken());
+      
 
     }).catch((err) => {
-      console.log(err);
       this.errorMessage = err.message;
     });
-    
+
+
   }
 
 }

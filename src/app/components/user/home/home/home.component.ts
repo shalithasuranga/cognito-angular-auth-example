@@ -8,10 +8,14 @@ import { AuthService } from 'src/app/services/auth/authservice/auth.service';
 })
 export class HomeComponent implements OnInit {
 
+  username = 'test';
+
   constructor(private authService: AuthService) { }
 
   ngOnInit() {
-    
+   /* this.authService.getCognitoUsername().then((result) => {
+      console.log(result);
+    });*/
   }
 
 }
